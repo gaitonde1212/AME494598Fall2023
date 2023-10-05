@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<script src='asyncReq.js'></script>
+<script>
+function updateData()
+{
+  loadURL("./getData", function(data){
+    document.getElementById("results").innerHTML = data;
+  })
+}
+function start()
+{
+  setInterval("updateData()", 300);
+}
+</script>
+</head>
+<body onload='start()'>
+<h1> Temperature/Humidity</h1>
+<div id='results'> </div>
+
+<div id="tutorial">
+
+    <h2>Tutorial</h2>
+    <ul>
+      <li>
+        <p>Step 1: Login Your AWS Account,Open Sandbox and 'start lab'</p>
+        <img src="Image\Picture1.png" >
+      </li>
+      <li>
+        <p>Step 2: Select EC2</p>
+        <img src="Image\Picture2.png">
+      </li>      <li>
+        <p>Step 3: Launch an Instance </p>
+        <img src="Image\Picture3.png">
+      </li>      <li>
+        <p>Step 4: We will be using Ubuntu Version 20.04</p>
+        <img src="Image\Picture4.png">
+      </li>      <li>
+        <p>Step 5: Select the Key and the Storage </p>
+        <img src="Image\Picture5.png">
+      </li>      <li>
+        <p>Step 6: Launch Instance</p>
+        <img src="Image\Picture7.png">
+      </li>    
+       <li>
+        <p>Step 7: Click on your instance ID</p>
+        <img src="Image\Picture9.png">
+      </li>      
+      <li>
+        <p>Step 8: Go to Security</p>
+        <img src="Image\Picture10.png">
+      </li>      <li>
+        <p>Step 9: Edit the inbound Rules</p>
+        <img src="Image\Picture11.png">
+        <img src="Image\Picture12.png">
+      </li>      
+      <li>
+        <p>Step 10: Connect to your instance</p>
+        <img src="Image\Picture13.png">
+        <img src="Image\Picture14.png">
+      </li>
+      <li>
+        <p>Step 11: Install Node/Mongo on EC2.</p>
+        <p>use command: curl -s https://gist.githubusercontent.com/tejaswigowda/f289e9bff13d152876e8d4b3281142f8/raw/df37df2e16a3166e686357a045751a7c18bbeebe/installNodeMongoUbuntu16.04.sh  | bash</p>
+        <img src="Image\Picture15.png">
+      </li>
+      <li>
+        <p>Step 12: git clone 'the repository'  </p>
+        <p> Go to the following folder >watchSensors/captureDataServer-TempHum </p>
+        <img src="Image\Picture16.png">
+      </li>
+      <li>
+        <p>Step 13: node server.js </p>
+        <img src="Image\Picture17.png">
+      </li>
+      <li>
+        <p>Step 14: Now on Arduino IDE, Program the Watch connected to Temperature and Humidity Sensor</p>
+        <img src="Image\Picture18.png">
+      </li>
+      <li>
+        <p>Step 15: You will see the data on your HTML link</p>
+        <img src="Image\Picture19.png">
+      </li>
+      <li>
+        <p>Step 16: Now for For Mongo we will install some libraries </p>
+        <p>npm install mongoskin@2 </p>
+        <p>npm install mongodb@2.2</p>
+        <img src="Image\Picture20.png">
+      </li> 
+      <li>
+        <p>Step 17: Make sure to configure your mongod</p>
+        <p>sudo nano /etc/mongod.conf </p>
+        <p>I have set my bindIP as 0.0.0.0</p>
+        <img src="Image\Picture22.png">
+      </li>
+      <li>
+        <p>Step 18: Start the service for mongodb</p>
+        <p>sudo service mongod start</p>
+        <img src="Image\Picture22.png">
+      </li>
+      <li>
+        <p>Step 19: Connect to EC2 IP </p>
+        <img src="Image\Picture23.png">
+      </li><li>
+        <p>Step 20: We can see a database created as 'sensorData'</p>
+        <img src="Image\Picture24.png">
+      </li><li>
+        <p>Step 21: We can see the data on Mongodb</p>
+        <img src="Image\Picture25.png">
+      </li>
+    </ul>
+</div>
+</body>
+</html>
